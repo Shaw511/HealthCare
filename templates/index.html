@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>智能健康管理系统主页</title>
+    <link href="static/index.css" rel="stylesheet">
+</head>
+
+<body>
+    <form action = "http://localhost:5000/" method = "post">
+    <div class="home">
+        <div class="content">
+            <div class="bjimg"></div>
+            <div class = "intro">
+                <h2 class="title" style="text-align:center; color:white; font:lighter">欢迎来到智能健康管理系统</h2>
+                <div class='ribbon'>
+                    <a href="{{ url_for('index') }}"><span>首页</span></a>
+                    <a href='./about.html'><span>关于</span></a>
+                    <a href="{{ url_for('function') }}"><span>功能</span> </a>
+                    <a href='./视频.html'><span>视频</span></a>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

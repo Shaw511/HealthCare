@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>功能-病例标注-因果图展示-概率推断</title>
+    <link href="static/功能.css" rel="stylesheet">
+    <script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+
+
+<body>
+        <form action = "http://localhost:5000/function" method = "post">
+    <div class="back_2" ></div>
+
+      <img src='../static/causal_pic.jpg' id="oImg" style='display:none' >
+
+
+    <div class="buttonlist">
+        <button onclick="location.href='/run_main'">对病例文本处理</button>
+        <input id="button_graph" style="margin-left:50px; margin-top:180px" type="button" color="red" value="因果图展示" onclick="causal_show()"/>
+        <input id="button_infer" style="margin-left:50px; margin-top:180px" type="button" color="red" value="疾病推断" onclick="reP()"/>
+      <script>
+        function causal_show(){
+        var ores_img2 = document.getElementById('ores2');
+        ores_img2.style.display="block";
+	    }
+	 </script>
+    </div>
+
+
+<!--    &lt;!&ndash; 在文本框内输入一个数字，点击输入完毕按钮，将在本地生成一个input.txt，内容为输入的数字 &ndash;&gt;-->
+<!--    <div id="input">-->
+<!--      <input id="data" type="text" value="" />-->
+<!--      <p></p>-->
+<!--      <input type="button" value="输入完毕" onclick="input()" />-->
+<!--  </div>-->
+
+  <script language="javascript">
+    function exec1(command) {
+
+        var ws = new ActiveXObject("WScript.Shell");
+        ws.run(command);
+
+
+    }
+
+    // function input() {
+    //     text = document.getElementById("data").value;  //获得网页文本框的值
+    //     var strFile = "input1.txt";	//定义文件保存的路径
+    //     var objFSO = new ActiveXObject("Scripting.FileSystemObject");
+    //     var objStream = objFSO.CreateTextFile(strFile, true);
+    //     objStream.Write(text);  //写值
+    //     objStream.Close();
+    // }
+</script>
+
+    <!-- 点击结果, 将在框内显示出计算的结果-->
+    <div id="result">	
+      <p><a href="../static/symptoms_and_causes.txt" target="result">数据标注结果显示</a></p>
+      <iframe name="result" width="300" height="300" scrolling="no" frameborder="3"></iframe>	
+  </div>
+
+  <div id="result1">
+
+      <img src={{response.image1}} id="ores" style="display: none">
+      <img src={{response.image2}} id="ores2" style="display: none">
+      <script>
+        function reP(){
+        var ores_img = document.getElementById('ores');
+        ores_img.style.display="block";
+	    }
+	 </script>
+
+
+</div>
+
+     <div class="mainbody">
+        <div class='ribbon' style="text-align: center;">
+            <a href='index.html'><span>首页</span></a>
+            <a href='./about.html'><span>关于</span></a>
+            <a href='./function.html'><span>功能</span></a>
+            <a href='./视频.html'><span>视频</span></a>
+        </div>
+
+
+
+        <div>
+            上传文件 ： <br>
+            <input type="file" name="file" multiple id="fileId" />
+            <br><br>
+            <button type="submit" name="btn" value="提交" id="btnId" onclick="check()">提交</button>
+            <br>
+            <textarea id="text" name="" id="" cols="100" rows="30"></textarea>
+
+          </div>
+          <script type="text/javascript">
+            function check() {
+              var objFile = document.getElementById("fileId");
+              if (objFile.value == "") {
+                alert("不能空")
+              }
+              var files = $('#fileId').prop('files'); //获取到文件列表
+              console.log(files.length);
+              if (files.length == 0) {
+                alert('请选择文件');
+              } else {
+                for (var i = 0; f = files[i]; i++) {
+                  var reader = new FileReader(); //新建一个FileReader
+                  reader.readAsText(files[i], "UTF-8"); //读取文件
+                  reader.onload = function (evt) { //读取完文件之后会回来这里
+                    var fileString = evt.target.result; // 读取文件内容
+                    console.log(fileString)
+                    $('#text').val(fileString)
+                  }
+                }
+              }
+            }
+ 
+          </script>
+          
+        
+
+</div>
+
+   
+</body>
+</html>

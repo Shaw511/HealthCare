@@ -1,0 +1,29 @@
+--启动说明 更新于2023年4月10日--
+[项目启动]
+1. 本地运行flask_run_main.py
+2. 在浏览器输入http://localhost:5000/进入首页
+3. 点击“功能”，进入功能页面
+
+[功能页面说明]
+1. 点击“选择文件”，上传病例文本，样例位于static/input.txt，点击提交，下方的文本框会显示文本内容
+2. (这里测试的时候请直接将input.txt放到static文件夹下）
+3. 点击“对病例文本处理”，后台这时会
+    1)启动main.py，
+    对static/input.txt进行处理，等待二十秒左右，得到static/symptoms_and_causes.txt和static/binary_repr.txt
+    2)启动createBayes.py
+    3)启动jointfunc.py
+
+4. 点击因果图展示，下方会出现因果图结果
+5. 点击疾病推断，下方会出现概率推断结果
+6. 目前jointfunc.py会在网页刷新的同时在你的控制台显示
+
+--目前待完善功能--
+1.功能页到首页的跳转https://blog.csdn.net/dremcl/article/details/105465229
+2.功能页元素的重排
+3.更好的因果图展示方式
+4.'关于'页 '视频'页的跳转
+5.域名的购买
+
+--其他--
+Git使用教程(80条消息) PyCharm中使用Git/GitHub详细步骤（图文详解）_couldn't kickstart handshaking_小白典的博客-CSDN博客
+
