@@ -48,7 +48,7 @@
       </div>
 
       <div id="result1">
-        <img src={{response.image1}} id="ores" style="display: none" />
+        <img src={{response.image1}} id="ores" style="display: none" width="419" height="374"/>
         <img src={{response.image2}} id="ores2" style="display: none" />
         <script>
           function reP() {
@@ -60,9 +60,9 @@
 
       <div class="mainbody">
         <div class="ribbon" style="text-align: center;">
-          <a href="index.html"><span>首页</span></a>
-          <a href="./about.html"><span>关于</span></a>
-          <a href="./function.html"><span>功能</span></a>
+          <a href="{{ url_for('index') }}"><span>首页</span></a>
+          <a href="{{ url_for('about')}}"><span>关于</span></a>
+          <a href="{{ url_for('function')}}"><span>功能</span></a>
           <a href="./视频.html"><span>视频</span></a>
         </div>
 
@@ -79,6 +79,7 @@
 
         <script type="text/javascript">
           function check() {
+            event.preventDefault();
             var objFile = document.getElementById("fileId");
             if (objFile.value == "") {
               alert("不能空");

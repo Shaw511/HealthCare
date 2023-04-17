@@ -28,4 +28,9 @@
     top: 50%;
     transform: translate(-50%,-50%);
   }
-  
+
+  .title::first-letter{
+      float:left;
+      font-size:2em;
+       margin-bottom: -0.2em;
+  }

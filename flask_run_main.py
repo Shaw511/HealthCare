@@ -25,7 +25,7 @@ def return_img_stream(img_local_path):
     return img_stream
 
 
-@app.route('/',methods=['POST','GET'])
+@app.route('/index',methods=['POST','GET'])
 def index():
     return render_template('index.html')
 
@@ -46,6 +46,9 @@ def run_create_bayes():
     subprocess.run(['python', 'jointfunc.py'])
     return '数据标注程序 main.py has been run in the background'
 
+@app.route('/about',methods=['POST','GET'])
+def about():
+    return render_template('about.html')
 
 if __name__=='__main__':
     # os.system('python main.py')
